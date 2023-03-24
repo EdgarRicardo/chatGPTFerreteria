@@ -9,6 +9,7 @@
 .conversation {
   color: white;
   font-size: 30px;
+  overflow-y: auto;
 }
 
 .input-question {
