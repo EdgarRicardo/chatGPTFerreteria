@@ -31,4 +31,8 @@
   font-size: 25px;
   padding: 10px 20px;
   margin: auto;
+}
+.input-question button:disabled,
+.input-question button[disabled] {
+  opacity: 0.5;
 }/*# sourceMappingURL=chatgpt.css.map */

@@ -1,6 +1,7 @@
 import HelpChatGPT from '../pages/helpChatGPT';
-export default async function ChatGPT() {
+export default function ChatGPT() { 
+    const apiKey = process.env.API_KEY_CHATGPT;
     return (
-        <HelpChatGPT></HelpChatGPT>
+        <HelpChatGPT apiKey={apiKey!}></HelpChatGPT>
     )
 }

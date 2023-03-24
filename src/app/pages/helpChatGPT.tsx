@@ -1,26 +1,25 @@
 'use client';
-
 import { ChangeEvent, useEffect, useState } from 'react';
 import { PulseLoader } from 'react-spinners';
 import './chatgpt.css'
 
-export default function HelpChatGPT() {
+export default function HelpChatGPT(props: {apiKey:string}) {
     const [question, setQuestion] = useState("");
     const [conversation, setConversation] = useState("");
     const [loading, setLoading] = useState(false);
-
+    console.log(props.apiKey);
+    
     async function callApi() {
         let convers = conversation+"Cliente: "+question+"\nIA:";
         setConversation(convers)
         setQuestion("")
-
         setLoading(true);
         const reqChatGTP = await fetch("https://api.openai.com/v1/completions", {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             redirect: 'follow',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer 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"
+                "Authorization": "Bearer " + props.apiKey
             },
             body: JSON.stringify(
                 {
@@ -53,8 +52,8 @@ export default function HelpChatGPT() {
                 {loading && <PulseLoader color="#fff" />}
             </div>
             <div className='input-question'>
-                <textarea value={question} onChange={e=> setQuestion(e.target.value)} />
-                <button onClick={callApi}>Ayudame</button>
+                <textarea disabled={loading} value={question} onChange={e=> setQuestion(e.target.value)} />
+                <button disabled={loading || !question.trim()} onClick={callApi}>Ayudame</button>
             </div>
         </div>
 

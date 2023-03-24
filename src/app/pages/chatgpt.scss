@@ -1,4 +1,4 @@
-.chat{
+.chat {
     display: grid;
     grid-template-rows: 10fr 1fr;
     height: 100%;
@@ -6,24 +6,26 @@
     gap: 10px;
 }
 
-.conversation{
+.conversation {
     color: white;
     font-size: 30px;
     overflow-y: auto;
 }
 
-.input-question{
+.input-question {
     display: grid;
     grid-template-columns: 10fr 1fr;
     gap: 10px;
     padding: 10px;
-    textarea{
+
+    textarea {
         margin: 10px 0;
         border: none;
         border-radius: 5px;
         font-size: 30px;
     }
-    button{
+
+    button {
         background-color: red;
         color: white;
         border-radius: 20px;
@@ -31,5 +33,9 @@
         padding: 10px 20px;
         margin: auto;
     }
-}
 
+    button:disabled,
+    button[disabled] {
+        opacity: 0.5;
+    }
+}
